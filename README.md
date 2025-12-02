@@ -13,7 +13,7 @@ To run the script from Docker we'll need to mount the current directory inside t
     docker run --rm -i -v c:/Users/USERNAME/some/path:/opt/ \
         perl:aoc2025 carton exec perl /opt/<script.pl>
 
-Also included is a shell alias that simplifies this command. It depends on the a certain directory structure where the scripts are located, examine the script for more info. It takes two positional arguments:
+Also included is a shell alias that simplifies this command. It depends on the a certain directory structure where the scripts are located--examine the script for more info. It takes two positional arguments:
 
 - The day of the challenge (two digits, zero-padded)
 - The puzzle number (1 or 2)
@@ -22,4 +22,5 @@ For example:
 
     $ . ./shortcut.sh          # set up command-line function
     $ cat input | aoc 01 1     # run day 1, puzzle 1 script
+
 
