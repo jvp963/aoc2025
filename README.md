@@ -20,5 +20,5 @@ Also included is a shell alias that simplifies this command. It depends on the a
 
 For example: 
 
-    . ./shortcut.sh
-    cat input | aoc 01 1
+    . ./shortcut.sh          # set up command-line function
+    cat input | aoc 01 1     # run day 1, puzzle 1 script
