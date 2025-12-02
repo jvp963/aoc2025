@@ -1,8 +1,8 @@
 # Advent of Code 2025
 
-These scripts can be run with a stock Perl installation (check the cpanfile for
+These scripts can be run with a stock Perl installation--check the cpanfile for
 any extra modules that need to be installed. Alternatively, they can be run with
-docker by following the instructions below.
+docker (based on my perl:carton docker container which you can find/build at https://github.com/jvp963/perldev).
 
 After building the perl:carton container, build the perl:aoc2025 container.
 
