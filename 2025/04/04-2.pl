@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 
+
 ## global variables. Yes, I know.
 my @grid = ( );
 my $size_x = 0;
@@ -41,10 +42,24 @@ while (<>) {
 }
 
 my $count = 0;
-foreach my $x (0..$size_x-1) {
-	foreach my $y (0..$size_x-1) {
-		$count++ if $grid[$x][$y] eq "@" && adjacent_count($x, $y) < 4;
-	}
-}
+my @accessible = ( );
 
-print "Count = $count rolls of paper can be accessed by the forklift\n";
+## will do multiple rounds to find accessible rolls, remove them, and then
+## repeat until no more rolls are accessible
+do {
+	@accessible = ( );
+	foreach my $x (0..$size_x-1) {
+		foreach my $y (0..$size_x-1) {
+			if ($grid[$x][$y] eq "@" && adjacent_count($x, $y) < 4) {
+				push @accessible, [$x, $y];
+				$count++;
+			}
+		}
+	}
+	foreach (@accessible) {
+		my($remove_x, $remove_y) = @{$_};
+		$grid[$remove_x][$remove_y] = ".";
+	}
+} until (scalar @accessible == 0);
+
+print "Count = $count total rolls of paper can be accessed by the forklift after removing some\n";
